@@ -8,7 +8,9 @@ describe("purchase simulation names", () => {
     let index = 0;
     const seen = new Set<string>();
     for (let count = 0; count < 100; count++) {
-      seen.add(purchaseExamples[index]);
+      const name = purchaseExamples[index];
+      if (name === undefined) throw new Error("Missing simulation name");
+      seen.add(name);
       index = nextPurchaseExample(index);
     }
     expect(seen.size).toBe(100);
