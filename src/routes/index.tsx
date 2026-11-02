@@ -220,8 +220,8 @@ function Index() {
               <p className="mt-2 font-display text-5xl font-bold">R$ 10,00</p>
               <p className="text-sm text-muted-foreground">Pagamento único</p>
               <Button asChild className="mt-6 h-auto w-full whitespace-normal bg-cta px-6 py-4 font-sans font-extrabold uppercase text-cta-foreground shadow-cta hover:bg-cta/90"><a href={CHECKOUT_BASICO}>Quero essa opção!<ArrowRight className="shrink-0" /></a></Button>
-              <img src={bannerOferta.url} alt="Ainda dá tempo de levar a melhor opção: 97% escolhem a super oferta" loading="lazy" draggable={false} className="mt-6 w-full rounded-lg" />
             </div>
+            <img src={bannerOferta.url} alt="Ainda dá tempo de levar a melhor opção: 97% escolhem a super oferta" loading="lazy" draggable={false} className="-mx-[calc((100vw-100%)/2-10px)] w-[calc(100vw-20px)] max-w-none md:col-span-2" />
             <div className="relative rounded-lg border-4 border-primary bg-card p-5 text-center shadow-2xl sm:p-8">
               <span className="absolute -top-4 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-5 py-1 font-display font-bold text-primary-foreground"><Zap className="h-4 w-4" /> MAIS VENDIDO</span>
               <h3 className="text-2xl font-bold">Plano Premium</h3>
