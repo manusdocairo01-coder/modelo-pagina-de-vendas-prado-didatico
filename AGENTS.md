@@ -12,3 +12,4 @@
 - Use only baked-in watermarked derivatives from `src/assets/protected` in public material previews; CSS overlays alone are removable.
 - Keep original full materials out of the public page; client-side copy deterrents cannot provide absolute anti-piracy protection.
 - Sales notification demonstrations must be explicitly labeled as simulations, never represented as verified purchases.
+- Keep fictional notification names and cycling logic in a browser-safe module with a uniqueness test, so the simulation does not repeat names within a cycle.

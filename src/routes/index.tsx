@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ShieldCheck, ShoppingCart, ArrowRight } from "lucide-react";
+import { ShieldCheck, ShoppingCart, ArrowRight, Check as CheckIcon, LockKeyhole, Zap, Printer, Palette, BookOpen, MessagesSquare, Clock3, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MaterialCarousel, PurchaseDemonstration } from "@/components/sales-enhancements";
 import logo from "@/assets/prado-logo.png.asset.json";
-import member from "@/assets/acesso-materiais.png.asset.json";
-import download from "@/assets/materiais-digitais.png.asset.json";
+import dyana from "@/assets/professora-dyana-prado.png.asset.json";
 import guarantee from "@/assets/garantia-sete-dias.png.asset.json";
 import f0 from "@/assets/protected/protected-foto.jpg.asset.json";
 import f1 from "@/assets/protected/protected-foto_1.jpg.asset.json";
@@ -53,11 +52,11 @@ const paginas = [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13].map((p) => p.ur
 
 function Cta({ href = "#oferta", children }: { href?: string; children: React.ReactNode }) {
   return (
-    <Button asChild className="h-auto max-w-full whitespace-normal rounded-lg bg-cta px-8 py-4 font-display text-lg font-bold uppercase text-cta-foreground shadow-cta hover:bg-cta/90"><a
+    <Button asChild className="h-auto max-w-full whitespace-normal rounded-lg bg-cta px-5 py-4 text-center font-sans text-base font-extrabold uppercase text-cta-foreground shadow-cta hover:bg-cta/90 sm:px-8 sm:text-lg"><a
       href={href}
       className="pulse-cta"
     >
-      {children}<ArrowRight className="ml-2" />
+      {children}<ArrowRight className="ml-1 shrink-0" />
     </a></Button>
   );
 }
@@ -65,7 +64,7 @@ function Cta({ href = "#oferta", children }: { href?: string; children: React.Re
 function Check({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex gap-3">
-      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cta text-sm font-bold text-cta-foreground">✓</span>
+      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cta text-cta-foreground"><CheckIcon className="h-4 w-4" strokeWidth={3} /></span>
       <span>{children}</span>
     </li>
   );
@@ -97,7 +96,7 @@ const faq = [
 function Index() {
   return (
     <main className="protected-material overflow-x-hidden bg-background text-foreground" onContextMenu={(event) => event.preventDefault()} onDragStart={(event) => event.preventDefault()}>
-      <div className="bg-deep py-2 text-center text-sm font-semibold text-deep-foreground">🔒 Compra 100% segura e protegida</div>
+      <div className="flex items-center justify-center gap-2 bg-deep px-4 py-2 text-center text-sm font-bold text-deep-foreground"><LockKeyhole className="h-4 w-4 shrink-0" /> Compra 100% segura e protegida</div>
 
       <header className="flex items-center justify-center border-b border-border bg-card px-5 py-4"><img src={logo.url} alt="Prado Didático" className="h-14 w-52 object-contain" draggable={false} /></header>
 
@@ -117,9 +116,9 @@ function Index() {
           <p className="mt-6 text-lg">Você recebe tudo na hora, direto no seu e-mail</p>
           <p className="mt-1 text-xl">De <s className="opacity-70">R$ 37,90</s> por apenas <span className="font-display text-4xl font-bold text-accent">R$ 10,00</span></p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm font-bold">
-            <span className="rounded-full bg-card/15 px-4 py-2">✅ Satisfação garantida</span>
-            <span className="rounded-full bg-card/15 px-4 py-2">⚡ Acesso imediato</span>
-            <span className="rounded-full bg-card/15 px-4 py-2">🖨️ Pronto para imprimir</span>
+            <span className="flex items-center gap-2 rounded-full bg-card/15 px-4 py-2"><ShieldCheck className="h-4 w-4 shrink-0 text-accent" /> Satisfação garantida</span>
+            <span className="flex items-center gap-2 rounded-full bg-card/15 px-4 py-2"><Zap className="h-4 w-4 shrink-0 text-accent" /> Acesso imediato</span>
+            <span className="flex items-center gap-2 rounded-full bg-card/15 px-4 py-2"><Printer className="h-4 w-4 shrink-0 text-accent" /> Pronto para imprimir</span>
           </div>
         </div>
       </section>
@@ -153,12 +152,12 @@ function Index() {
           <h2 className="text-center text-3xl font-bold md:text-4xl">Por que você precisa ter este material?</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              ["🎨", "39 ilustrações A4", "Desenhos exclusivos com frases sobre identidade, ancestralidade, cabelos, família, África, leitura e pertencimento."],
-              ["📚", "Do 1º ao 5º ano", "Use com diferentes turmas, ajustando a leitura das frases e a conversa à idade das crianças."],
-              ["💬", "Aprendizado com significado", "Desenvolve leitura, oralidade, coordenação motora, criatividade, autoestima e respeito à diversidade."],
-            ].map(([i, t, d]) => (
+              { icon: Palette, title: "39 ilustrações A4", description: "Desenhos exclusivos com frases sobre identidade, ancestralidade, cabelos, família, África, leitura e pertencimento." },
+              { icon: BookOpen, title: "Do 1º ao 5º ano", description: "Use com diferentes turmas, ajustando a leitura das frases e a conversa à idade das crianças." },
+              { icon: MessagesSquare, title: "Aprendizado com significado", description: "Desenvolve leitura, oralidade, coordenação motora, criatividade, autoestima e respeito à diversidade." },
+            ].map(({ icon: Icon, title: t, description: d }) => (
               <div key={t} className="rounded-lg border-2 border-border bg-card p-7 text-center shadow-sm">
-                <div className="text-5xl">{i}</div>
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-lg bg-primary/10 text-primary"><Icon className="h-9 w-9" strokeWidth={1.75} /></div>
                 <h3 className="mt-4 text-xl font-bold">{t}</h3>
                 <p className="mt-2 text-muted-foreground">{d}</p>
               </div>
@@ -184,9 +183,9 @@ function Index() {
       {/* Como usar */}
       <section className="px-5 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="font-display font-bold uppercase text-primary">⚡ Acesso imediato</p>
+          <p className="flex items-center justify-center gap-2 font-display font-bold uppercase text-primary"><Zap className="h-5 w-5" /> Acesso imediato</p>
           <h2 className="mt-2 text-3xl font-bold md:text-4xl">Tudo foi pensado para ser simples de aplicar</h2>
-          <div className="mt-10 grid gap-4 text-left sm:grid-cols-2 md:grid-cols-5">
+          <div className="mt-10 grid gap-4 text-center sm:grid-cols-2 lg:grid-cols-5">
             {[
               ["1", "Roda de conversa", "Apresente o tema da Consciência Negra."],
               ["2", "Leitura da frase", "Cada aluno lê a frase da sua página."],
@@ -195,7 +194,7 @@ function Index() {
               ["5", "Exposição", "Monte o mural e valorize a turma."],
             ].map(([n, t, d]) => (
               <div key={n} className="rounded-lg bg-muted p-5">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-lg font-bold text-primary-foreground">{n}</div>
+                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-lg font-bold text-primary-foreground">{n}</div>
                 <h3 className="mt-3 font-bold">{t}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{d}</p>
               </div>
@@ -210,19 +209,19 @@ function Index() {
       {/* Oferta */}
       <section id="oferta" className="bg-muted px-5 py-16">
         <div className="mx-auto max-w-4xl">
-          <p className="text-center font-display text-lg font-bold uppercase text-primary">🕒 Oferta válida por tempo limitado</p>
+          <p className="flex items-center justify-center gap-2 text-center font-display text-lg font-bold uppercase text-primary"><Clock3 className="h-5 w-5 shrink-0" /> Oferta válida por tempo limitado</p>
           <h2 className="mt-2 text-center text-3xl font-bold uppercase">Escolha a melhor opção para você:</h2>
           <div className="mt-10 grid items-start gap-8 md:grid-cols-2">
-            <div className="rounded-lg border-2 border-border bg-card p-8 text-center">
+            <div className="rounded-lg border-2 border-border bg-card p-5 text-center sm:p-8">
               <h3 className="text-2xl font-bold">Plano Básico</h3>
               <ul className="mt-6 space-y-3 text-left"><Check>39 ilustrações A4 para colorir – Consciência Negra • Coleção digital</Check></ul>
               <p className="mt-6 text-sm text-muted-foreground">Clique no botão abaixo e garanta já o seu!</p>
               <p className="mt-2 font-display text-5xl font-bold">R$ 10,00</p>
               <p className="text-sm text-muted-foreground">Pagamento único</p>
-              <Button asChild variant="outline" className="mt-6 h-auto w-full whitespace-normal border-2 border-cta px-6 py-3 font-display font-bold uppercase text-cta hover:bg-cta hover:text-cta-foreground"><a href={CHECKOUT_BASICO}>Quero essa opção!</a></Button>
+              <Button asChild className="mt-6 h-auto w-full whitespace-normal bg-cta px-6 py-4 font-sans font-extrabold uppercase text-cta-foreground shadow-cta hover:bg-cta/90"><a href={CHECKOUT_BASICO}>Quero essa opção!<ArrowRight className="shrink-0" /></a></Button>
             </div>
-            <div className="relative rounded-lg border-4 border-primary bg-card p-8 text-center shadow-2xl">
-              <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-5 py-1 font-display font-bold text-primary-foreground">⚡ MAIS VENDIDO</span>
+            <div className="relative rounded-lg border-4 border-primary bg-card p-5 text-center shadow-2xl sm:p-8">
+              <span className="absolute -top-4 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-5 py-1 font-display font-bold text-primary-foreground"><Zap className="h-4 w-4" /> MAIS VENDIDO</span>
               <h3 className="text-2xl font-bold">Plano Premium</h3>
               <p className="mt-1 text-sm font-bold text-primary">Tudo do Básico + bônus</p>
               <ul className="mt-6 space-y-3 text-left">
@@ -256,8 +255,8 @@ function Index() {
       {/* Autora */}
       <section className="bg-hero px-5 py-16 text-deep-foreground">
         <div className="mx-auto grid max-w-4xl items-center gap-10 md:grid-cols-[1fr_1.5fr]">
-          <div className="flex flex-col items-center gap-5 border-b border-accent/30 pb-8 md:border-b-0 md:border-r md:pb-0 md:pr-10">
-            <div className="flex h-28 w-28 items-center justify-center rounded-full border-2 border-accent font-display text-4xl text-accent">DP</div>
+          <div className="flex flex-col items-center gap-5 border-b border-accent/30 pb-8 text-center md:border-b-0 md:border-r md:pb-0 md:pr-10">
+            <img src={dyana.url} alt="Professora Dyana Prado" loading="lazy" draggable={false} className="w-full max-w-72 object-contain" />
             <p className="font-display text-2xl font-bold">Professora Dyana Prado</p>
             <p className="text-sm text-accent">@profdyanaprado</p>
           </div>
@@ -291,12 +290,12 @@ function Index() {
           <h2 className="text-3xl font-bold uppercase">Como é o acesso</h2><p className="mt-2 font-bold text-primary">Passo a passo</p>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              ["🛒", "Conclua sua compra", "Após o pagamento, o acesso é liberado automaticamente."],
-              ["📧", "Acesse sua coleção", "Receba as instruções por e-mail e acesse sua coleção de atividades."],
-              ["🖨️", "Imprima e encante", "Coleção digital em alta resolução, com atividades prontas para imprimir e aplicar."],
-            ].map(([i, t, d]) => (
+              { icon: ShoppingCart, title: "Conclua sua compra", description: "Após o pagamento, o acesso é liberado automaticamente." },
+              { icon: Mail, title: "Acesse sua coleção", description: "Receba as instruções por e-mail e acesse sua coleção de atividades." },
+              { icon: Printer, title: "Imprima e encante", description: "Coleção digital em alta resolução, com atividades prontas para imprimir e aplicar." },
+            ].map(({ icon: Icon, title: t, description: d }) => (
               <div key={t} className="p-5">
-                <div className="mx-auto flex h-28 w-28 items-center justify-center">{i === "🛒" ? <ShoppingCart className="h-24 w-24 text-secondary" /> : <img src={i === "📧" ? member.url : download.url} alt="" className="h-28 w-28 object-contain" draggable={false} />}</div>
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-lg bg-secondary/10 text-secondary"><Icon className="h-11 w-11" strokeWidth={1.75} /></div>
                 <h3 className="mt-6 text-lg font-bold">{t}</h3>
                 <p className="mt-2 text-muted-foreground">{d}</p>
               </div>
