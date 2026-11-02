@@ -145,8 +145,6 @@ function Index() {
           <p className="mt-3 text-lg font-semibold text-primary">Ilustrações que encantam as crianças e abrem espaço para conversas importantes</p>
           <MaterialCarousel images={paginas} />
         </div>
-          <p className="mt-2 text-sm text-muted-foreground">← arraste para ver mais →</p>
-        </div>
       </section>
 
       {/* Por que */}
@@ -221,7 +219,7 @@ function Index() {
               <p className="mt-6 text-sm text-muted-foreground">Clique no botão abaixo e garanta já o seu!</p>
               <p className="mt-2 font-display text-5xl font-bold">R$ 10,00</p>
               <p className="text-sm text-muted-foreground">Pagamento único</p>
-              <a href={CHECKOUT_BASICO} className="mt-6 inline-block w-full rounded-full border-2 border-cta px-6 py-3 font-display font-bold uppercase text-cta transition hover:bg-cta hover:text-cta-foreground">Quero essa opção!</a>
+              <Button asChild variant="outline" className="mt-6 h-auto w-full whitespace-normal border-2 border-cta px-6 py-3 font-display font-bold uppercase text-cta hover:bg-cta hover:text-cta-foreground"><a href={CHECKOUT_BASICO}>Quero essa opção!</a></Button>
             </div>
             <div className="relative rounded-lg border-4 border-primary bg-card p-8 text-center shadow-2xl">
               <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-5 py-1 font-display font-bold text-primary-foreground">⚡ MAIS VENDIDO</span>
@@ -252,7 +250,7 @@ function Index() {
       <section className="px-5 py-12 text-center">
         <h2 className="text-3xl font-bold">DÚVIDAS?</h2>
         <p className="mt-2 font-semibold">Fale com a nossa equipe no WhatsApp:</p>
-        <a href={WHATSAPP} className="mt-5 inline-block rounded-full bg-secondary px-8 py-3 font-display font-bold text-secondary-foreground">ENVIE UMA MENSAGEM</a>
+        <Button asChild variant="secondary" className="mt-5 h-auto whitespace-normal px-8 py-3 font-display font-bold"><a href={WHATSAPP}>ENVIE UMA MENSAGEM</a></Button>
       </section>
 
       {/* Autora */}
