@@ -6,6 +6,7 @@ import { MaterialCarousel, PurchaseDemonstration } from "@/components/sales-enha
 import logo from "@/assets/prado-logo.png.asset.json";
 import dyana from "@/assets/professora-dyana-prado.png.asset.json";
 import guarantee from "@/assets/garantia-sete-dias.png.asset.json";
+import bannerOferta from "@/assets/banner-oferta-prado.png.asset.json";
 import f0 from "@/assets/protected/protected-foto.jpg.asset.json";
 import f1 from "@/assets/protected/protected-foto_1.jpg.asset.json";
 import f2 from "@/assets/protected/protected-foto_2.jpg.asset.json";
@@ -219,6 +220,7 @@ function Index() {
               <p className="mt-2 font-display text-5xl font-bold">R$ 10,00</p>
               <p className="text-sm text-muted-foreground">Pagamento único</p>
               <Button asChild className="mt-6 h-auto w-full whitespace-normal bg-cta px-6 py-4 font-sans font-extrabold uppercase text-cta-foreground shadow-cta hover:bg-cta/90"><a href={CHECKOUT_BASICO}>Quero essa opção!<ArrowRight className="shrink-0" /></a></Button>
+              <img src={bannerOferta.url} alt="Ainda dá tempo de levar a melhor opção: 97% escolhem a super oferta" loading="lazy" draggable={false} className="mt-6 w-full rounded-lg" />
             </div>
             <div className="relative rounded-lg border-4 border-primary bg-card p-5 text-center shadow-2xl sm:p-8">
               <span className="absolute -top-4 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-5 py-1 font-display font-bold text-primary-foreground"><Zap className="h-4 w-4" /> MAIS VENDIDO</span>
@@ -258,7 +260,6 @@ function Index() {
           <div className="flex flex-col items-center gap-5 border-b border-accent/30 pb-8 text-center md:border-b-0 md:border-r md:pb-0 md:pr-10">
             <img src={dyana.url} alt="Professora Dyana Prado" loading="lazy" draggable={false} className="w-full max-w-72 object-contain" />
             <p className="font-display text-2xl font-bold">Professora Dyana Prado</p>
-            <p className="text-sm text-accent">@profdyanaprado</p>
           </div>
           <div>
             <p className="text-sm font-extrabold uppercase text-accent">Quem está por trás do material</p>
