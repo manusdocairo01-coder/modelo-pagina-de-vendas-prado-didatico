@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Check, Pause, Play, ShoppingBag, X } from "lucide-react";
+import { Pause, Play, ShoppingBag, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { nextPurchaseExample, purchaseExamples } from "@/lib/purchase-examples";
 
 export function MaterialCarousel({ images }: { images: string[] }) {
   const [paused, setPaused] = useState(false);
@@ -21,8 +22,6 @@ export function MaterialCarousel({ images }: { images: string[] }) {
   );
 }
 
-const examples = ["Maria Q.", "Ana P.", "Juliana M.", "Fernanda S."];
-
 export function PurchaseDemonstration() {
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(false);
@@ -32,7 +31,7 @@ export function PurchaseDemonstration() {
     let hide: ReturnType<typeof setTimeout> | undefined;
     const show = () => {
       setVisible(true);
-      hide = setTimeout(() => { setVisible(false); setIndex((value) => (value + 1) % examples.length); }, 6000);
+      hide = setTimeout(() => { setVisible(false); setIndex(nextPurchaseExample); }, 6000);
     };
     const first = setTimeout(show, 8000);
     const cycle = setInterval(show, 22000);
@@ -40,13 +39,13 @@ export function PurchaseDemonstration() {
   }, [dismissed]);
   if (!visible || dismissed) return null;
   return (
-    <aside className="purchase-notice" aria-label="Demonstração de notificação de compra">
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary/15 text-secondary"><ShoppingBag className="h-5 w-5" /></div>
+    <aside className="purchase-notice" aria-label="Notificação de compra simulada" aria-live="polite">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-cta/10 text-cta"><ShoppingBag className="h-6 w-6" strokeWidth={2} /></div>
       <div className="min-w-0 flex-1">
-        <p className="text-[10px] font-extrabold uppercase text-muted-foreground">Demonstração · compra simulada</p>
-        <p className="mt-1 text-sm"><strong>{examples[index]}</strong> acabou de comprar</p>
-        <p className="text-xs font-bold text-primary">Consciência Negra — 39 Ilustrações</p>
-        <p className="mt-1 flex items-center gap-1 text-[10px] text-secondary"><Check className="h-3 w-3" /> Exemplo de confirmação</p>
+        <p className="text-sm font-extrabold leading-snug">{purchaseExamples[index]}</p>
+        <p className="mt-0.5 text-xs font-bold text-muted-foreground">acabou de comprar</p>
+        <p className="mt-1 text-xs font-extrabold leading-snug text-primary">Consciência Negra — 39 Ilustrações</p>
+        <p className="mt-2 text-[10px] font-bold text-muted-foreground">Compra simulada</p>
       </div>
       <Button size="icon" variant="ghost" className="h-7 w-7 shrink-0" title="Fechar notificação" aria-label="Fechar notificação" onClick={() => setDismissed(true)}><X /></Button>
     </aside>

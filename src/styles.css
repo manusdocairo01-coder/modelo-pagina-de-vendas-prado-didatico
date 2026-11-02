@@ -90,7 +90,7 @@
   --ring: oklch(0.46 0.1 355);
   --deep: oklch(0.28 0.04 340);
   --deep-foreground: oklch(0.98 0.005 340);
-  --cta: oklch(0.49 0.09 155);
+  --cta: oklch(0.53 0.17 150);
   --cta-foreground: oklch(0.99 0 0);
   --gradient-hero: var(--deep);
   --shadow-cta: 0 10px 30px -8px color-mix(in oklab, var(--cta) 60%, transparent);
@@ -125,6 +125,8 @@
   --muted-foreground: oklch(0.704 0.04 256.788);
   --accent: oklch(0.279 0.041 260.031);
   --accent-foreground: oklch(0.984 0.003 247.858);
+  --cta: oklch(0.53 0.17 150);
+  --cta-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(1 0 0 / 10%);
@@ -176,3 +178,11 @@
 @media (max-width: 640px) { .material-preview { width: 210px; } .purchase-notice { bottom: 16px; left: 16px; } }
 @media (prefers-reduced-motion: reduce) { .pulse-cta, .material-track, .purchase-notice { animation: none; } .material-carousel { overflow-x: auto; } }
 @media print { .protected-material img, .material-carousel { visibility: hidden; } .purchase-notice { display: none; } }
+
+.protected-material h1, .protected-material h2, .protected-material h3 { overflow-wrap: break-word; }
+.protected-material section > div, .protected-material section div.grid > div { min-width: 0; }
+.purchase-notice { border-left-color: var(--cta); }
+@media (max-width: 640px) {
+  .protected-material section { padding-left: 16px; padding-right: 16px; }
+  .protected-material a { max-width: 100%; }
+}
