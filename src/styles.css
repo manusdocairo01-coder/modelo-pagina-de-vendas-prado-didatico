@@ -160,7 +160,7 @@
 @utility tribal { background: var(--pattern); }
 @utility shadow-cta { box-shadow: var(--shadow-cta); }
 @utility pulse-cta { animation: pulsecta 1.8s ease-in-out infinite; }
-@keyframes pulsecta { 0%,100% { transform: scale(1) } 50% { transform: scale(1.04) } }
+@keyframes pulsecta { 0%,100% { box-shadow: var(--shadow-cta); } 50% { box-shadow: 0 4px 24px color-mix(in oklab, var(--cta) 45%, transparent); } }
 @layer base { h1,h2,h3 { font-family: var(--font-display); } body { font-family: var(--font-sans); } }
 
 .material-carousel { overflow: hidden; width: 100%; }
